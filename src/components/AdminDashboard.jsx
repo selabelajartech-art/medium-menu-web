@@ -287,23 +287,23 @@ export default function AdminDashboard({ onBackToPublic }) {
     return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(number || 0);
   };
 
-  // LIGHT MODE UNLOCK PIN SCREEN
+  // PIN UNLOCK SCREEN
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-slate-100 flex items-center justify-center p-4 font-sans text-slate-900">
-        <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 w-full max-w-sm shadow-lg">
+      <div className="min-h-screen bg-zinc-100 flex items-center justify-center p-4 font-sans text-zinc-950">
+        <div className="bg-white border-2 border-zinc-950 rounded-2xl p-6 sm:p-8 w-full max-w-sm shadow-[8px_8px_0px_0px_rgba(0,82,255,1)]">
           <div className="text-center space-y-2 mb-6">
-            <div className="w-12 h-12 bg-[#0052FF] text-white rounded-xl flex items-center justify-center mx-auto mb-3 shadow-md">
+            <div className="w-12 h-12 bg-[#0052FF] text-white rounded-xl flex items-center justify-center mx-auto mb-3 border-2 border-zinc-950 shadow-[2px_2px_0px_0px_rgba(24,24,27,1)]">
               <Lock className="w-6 h-6 stroke-[2.5]" />
             </div>
-            <h2 className="text-lg font-black uppercase tracking-tight text-slate-900">ACCESS RESTRICTED</h2>
-            <p className="text-xs text-slate-500 font-medium">Masukkan PIN Admin Medium Brewspace.</p>
+            <h2 className="text-lg font-black uppercase tracking-tight text-zinc-950">ACCESS RESTRICTED</h2>
+            <p className="text-xs text-zinc-600 font-bold">Masukkan PIN Admin Medium Brewspace.</p>
           </div>
 
           <form onSubmit={handlePinSubmit} className="space-y-4">
             <div>
               <div className="relative">
-                <KeyRound className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                <KeyRound className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-400" />
                 <input
                   type="password"
                   maxLength={6}
@@ -311,11 +311,11 @@ export default function AdminDashboard({ onBackToPublic }) {
                   placeholder="PIN Kunci"
                   value={pinInput}
                   onChange={(e) => setPinInput(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-center font-mono font-bold tracking-widest text-lg focus:border-[#0052FF] focus:outline-none transition"
+                  className="w-full pl-10 pr-4 py-3 bg-zinc-50 border-2 border-zinc-950 rounded-xl text-center font-mono font-bold tracking-widest text-lg focus:border-[#0052FF] focus:outline-none transition"
                 />
               </div>
               {pinError && (
-                <p className="text-xs font-bold text-red-600 text-center mt-2 uppercase tracking-wider">
+                <p className="text-xs font-black text-[#FF4500] text-center mt-2 uppercase tracking-wider">
                   PIN Salah! Coba lagi.
                 </p>
               )}
@@ -323,7 +323,7 @@ export default function AdminDashboard({ onBackToPublic }) {
 
             <button
               type="submit"
-              className="w-full bg-[#0052FF] hover:bg-slate-900 text-white font-black py-3 rounded-xl uppercase tracking-wider text-xs transition active:scale-95 shadow-xs"
+              className="w-full bg-[#0052FF] hover:bg-zinc-950 text-white font-black py-3 rounded-xl uppercase tracking-wider text-xs transition border-2 border-zinc-950 shadow-[3px_3px_0px_0px_rgba(24,24,27,1)] active:translate-x-0.5 active:translate-y-0.5"
             >
               Unlock Dashboard
             </button>
@@ -331,7 +331,7 @@ export default function AdminDashboard({ onBackToPublic }) {
             <button
               type="button"
               onClick={onBackToPublic}
-              className="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-2.5 rounded-xl uppercase tracking-wider text-[11px] transition"
+              className="w-full bg-zinc-100 hover:bg-zinc-200 text-zinc-800 font-bold py-2.5 rounded-xl uppercase tracking-wider text-[11px] transition border border-zinc-300"
             >
               Kembali ke Menu
             </button>
@@ -341,26 +341,26 @@ export default function AdminDashboard({ onBackToPublic }) {
     );
   }
 
-  // LIGHT MODE DASHBOARD ADMIN
+  // DASHBOARD UTAMA
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 p-3.5 sm:p-6 font-sans">
+    <div className="min-h-screen bg-zinc-100 text-zinc-950 p-3.5 sm:p-6 font-sans">
       <div className="max-w-4xl mx-auto space-y-4 sm:space-y-6">
         
         {/* Header Admin */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 shadow-xs">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white p-4 sm:p-5 rounded-2xl border-2 border-zinc-950 shadow-[4px_4px_0px_0px_rgba(24,24,27,1)]">
           <div className="flex items-center gap-3">
             <button 
               onClick={onBackToPublic}
-              className="p-2 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-900 hover:text-white transition"
+              className="p-2 rounded-xl bg-zinc-100 text-zinc-800 hover:bg-zinc-950 hover:text-white transition border-2 border-zinc-950"
               title="Ke Menu Pelanggan"
             >
               <ArrowLeft className="w-4 h-4 stroke-[2.5]" />
             </button>
             <div>
-              <h1 className="text-base sm:text-xl font-black uppercase tracking-tight text-slate-900">
+              <h1 className="text-base sm:text-xl font-black uppercase tracking-tight text-zinc-950">
                 MEDIUM BREWSPACE <span className="text-[#0052FF]">• ADMIN</span>
               </h1>
-              <p className="text-[10px] sm:text-xs text-slate-500 font-bold uppercase tracking-wider">
+              <p className="text-[10px] sm:text-xs text-zinc-600 font-black uppercase tracking-wider">
                 Realtime Menu Management
               </p>
             </div>
@@ -368,7 +368,7 @@ export default function AdminDashboard({ onBackToPublic }) {
 
           <button
             onClick={() => activeTab === 'items' ? openItemModal() : openCatModal()}
-            className="flex items-center justify-center gap-2 px-4 py-2.5 bg-[#0052FF] hover:bg-slate-900 text-white rounded-xl text-xs font-black uppercase tracking-wider transition active:scale-95 shadow-xs"
+            className="flex items-center justify-center gap-2 px-4 py-2.5 bg-[#0052FF] hover:bg-zinc-950 text-white rounded-xl text-xs font-black uppercase tracking-wider transition border-2 border-zinc-950 shadow-[2px_2px_0px_0px_rgba(24,24,27,1)] active:translate-x-0.5 active:translate-y-0.5"
           >
             <Plus className="w-4 h-4 stroke-[3]" />
             {activeTab === 'items' ? 'Tambah Menu' : 'Tambah Kategori'}
@@ -376,93 +376,92 @@ export default function AdminDashboard({ onBackToPublic }) {
         </div>
 
         {/* Tab Selector */}
-        <div className="flex gap-2 bg-white p-1.5 rounded-2xl border border-slate-200">
+        <div className="flex gap-2 bg-white p-1.5 rounded-2xl border-2 border-zinc-950 shadow-[2px_2px_0px_0px_rgba(24,24,27,1)]">
           <button
             onClick={() => setActiveTab('items')}
-            className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-xl text-xs font-black uppercase tracking-wider transition ${
+            className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-xl text-xs font-black uppercase tracking-wider transition border-2 border-zinc-950 ${
               activeTab === 'items'
-                ? 'bg-[#0052FF] text-white shadow-xs'
-                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                ? 'bg-[#0052FF] text-white'
+                : 'bg-zinc-50 text-zinc-700 hover:bg-zinc-100'
             }`}
           >
-            <Utensils className="w-4 h-4" />
+            <Utensils className="w-4 h-4 stroke-[2.5]" />
             Menu ({menuItems.length})
           </button>
 
           <button
             onClick={() => setActiveTab('categories')}
-            className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-xl text-xs font-black uppercase tracking-wider transition ${
+            className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-xl text-xs font-black uppercase tracking-wider transition border-2 border-zinc-950 ${
               activeTab === 'categories'
-                ? 'bg-[#0052FF] text-white shadow-xs'
-                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                ? 'bg-[#0052FF] text-white'
+                : 'bg-zinc-50 text-zinc-700 hover:bg-zinc-100'
             }`}
           >
-            <Layers className="w-4 h-4" />
+            <Layers className="w-4 h-4 stroke-[2.5]" />
             Kategori ({categories.length})
           </button>
         </div>
 
-        {/* TAB 1: DAFTAR MENU (LIGHT MOBILE CARDS) */}
+        {/* TAB 1: MENU CARDS */}
         {activeTab === 'items' && (
           <div className="space-y-3">
             {loading ? (
-              <div className="flex flex-col items-center justify-center py-16 text-slate-400 gap-2">
+              <div className="flex flex-col items-center justify-center py-16 text-zinc-500 gap-2">
                 <Loader2 className="w-6 h-6 animate-spin text-[#0052FF]" />
-                <p className="text-xs font-bold uppercase tracking-wider">Memuat data menu...</p>
+                <p className="text-xs font-black uppercase tracking-wider">Memuat data menu...</p>
               </div>
             ) : menuItems.length === 0 ? (
-              <div className="text-center py-12 bg-white rounded-2xl border border-slate-200">
-                <p className="text-slate-400 text-xs font-bold uppercase tracking-wider">Belum ada menu tersimpan.</p>
+              <div className="text-center py-12 bg-white rounded-2xl border-2 border-zinc-950">
+                <p className="text-zinc-500 text-xs font-black uppercase tracking-wider">Belum ada menu tersimpan.</p>
               </div>
             ) : (
               menuItems.map(item => (
-                <div key={item.id} className="bg-white p-3 sm:p-4 rounded-2xl border border-slate-200 flex items-center justify-between gap-2 shadow-xs">
+                <div key={item.id} className="bg-white p-3 sm:p-4 rounded-2xl border-2 border-zinc-950 flex items-center justify-between gap-2 shadow-[3px_3px_0px_0px_rgba(24,24,27,1)]">
                   <div className="flex items-center gap-3 min-w-0">
                     <img 
                       src={item.image_url || 'https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&fit=crop&q=80&w=400'} 
                       alt="" 
-                      className="w-14 h-14 sm:w-16 sm:h-16 object-cover rounded-xl bg-slate-100 border border-slate-200 flex-shrink-0"
+                      className="w-14 h-14 sm:w-16 sm:h-16 object-cover rounded-xl bg-zinc-100 border-2 border-zinc-950 flex-shrink-0"
                     />
                     <div className="min-w-0">
                       <div className="flex items-center gap-1.5 flex-wrap">
-                        <h4 className="font-black text-slate-900 text-xs sm:text-sm truncate uppercase tracking-tight">{item.name}</h4>
+                        <h4 className="font-black text-zinc-950 text-xs sm:text-sm truncate uppercase tracking-tight">{item.name}</h4>
                         {item.is_popular && (
-                          <span className="bg-[#FF4500] text-white text-[8px] font-black px-1.5 py-0.5 rounded uppercase">
+                          <span className="bg-[#FF4500] text-white text-[8px] font-black px-1.5 py-0.5 rounded border border-zinc-950 uppercase">
                             FAVORIT
                           </span>
                         )}
                       </div>
                       <p className="text-[#0052FF] font-black text-xs mt-0.5">{formatRupiah(item.price)}</p>
-                      <p className="text-slate-500 font-semibold text-[10px] truncate mt-0.5">
+                      <p className="text-zinc-600 font-bold text-[10px] truncate mt-0.5">
                         {categories.find(c => c.id === item.category_id)?.name || 'Tanpa Kategori'} • Stok: {item.stock_quantity ?? 0}
                       </p>
                     </div>
                   </div>
 
-                  {/* Action Buttons */}
                   <div className="flex items-center gap-1 flex-shrink-0">
                     <button
                       onClick={() => toggleAvailable(item)}
-                      className={`p-2 rounded-xl text-xs font-black transition ${
-                        item.is_available ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'bg-slate-100 text-slate-400'
+                      className={`p-2 rounded-xl text-xs font-black transition border-2 border-zinc-950 ${
+                        item.is_available ? 'bg-[#CCFF00] text-zinc-950' : 'bg-zinc-100 text-zinc-400'
                       }`}
                       title={item.is_available ? 'Tersedia' : 'Habis'}
                     >
-                      {item.is_available ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
+                      {item.is_available ? <Eye className="w-4 h-4 stroke-[2.5]" /> : <EyeOff className="w-4 h-4 stroke-[2.5]" />}
                     </button>
                     <button
                       onClick={() => openItemModal(item)}
-                      className="p-2 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-900 hover:text-white transition"
+                      className="p-2 rounded-xl bg-zinc-100 text-zinc-800 hover:bg-zinc-950 hover:text-white transition border-2 border-zinc-950"
                       title="Edit"
                     >
-                      <Edit2 className="w-4 h-4" />
+                      <Edit2 className="w-4 h-4 stroke-[2.5]" />
                     </button>
                     <button
                       onClick={() => handleDeleteItem(item.id)}
-                      className="p-2 rounded-xl bg-red-50 text-red-600 hover:bg-red-600 hover:text-white transition"
+                      className="p-2 rounded-xl bg-red-100 text-red-600 hover:bg-red-600 hover:text-white transition border-2 border-zinc-950"
                       title="Hapus"
                     >
-                      <Trash2 className="w-4 h-4" />
+                      <Trash2 className="w-4 h-4 stroke-[2.5]" />
                     </button>
                   </div>
                 </div>
@@ -475,34 +474,34 @@ export default function AdminDashboard({ onBackToPublic }) {
         {activeTab === 'categories' && (
           <div className="space-y-3">
             {categories.length === 0 ? (
-              <div className="text-center py-12 bg-white rounded-2xl border border-slate-200">
-                <p className="text-slate-400 text-xs font-bold uppercase tracking-wider">Belum ada kategori.</p>
+              <div className="text-center py-12 bg-white rounded-2xl border-2 border-zinc-950">
+                <p className="text-zinc-500 text-xs font-black uppercase tracking-wider">Belum ada kategori.</p>
               </div>
             ) : (
               categories.map(cat => {
                 const count = menuItems.filter(i => i.category_id === cat.id).length;
                 return (
-                  <div key={cat.id} className="bg-white p-3.5 rounded-2xl border border-slate-200 flex items-center justify-between gap-3 shadow-xs">
+                  <div key={cat.id} className="bg-white p-3.5 rounded-2xl border-2 border-zinc-950 flex items-center justify-between gap-3 shadow-[3px_3px_0px_0px_rgba(24,24,27,1)]">
                     <div>
                       <div className="flex items-center gap-2">
                         <span className="font-mono text-xs font-black text-[#0052FF]">#{cat.sort_order}</span>
-                        <h4 className="font-black text-slate-900 text-xs sm:text-sm uppercase tracking-tight">{cat.name}</h4>
+                        <h4 className="font-black text-zinc-950 text-xs sm:text-sm uppercase tracking-tight">{cat.name}</h4>
                       </div>
-                      <p className="text-slate-500 text-[10px] font-semibold mt-0.5">{count} Menu Terhubung</p>
+                      <p className="text-zinc-600 text-[10px] font-bold mt-0.5">{count} Menu Terhubung</p>
                     </div>
 
                     <div className="flex items-center gap-1.5 flex-shrink-0">
                       <button
                         onClick={() => openCatModal(cat)}
-                        className="p-2 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-900 hover:text-white transition"
+                        className="p-2 rounded-xl bg-zinc-100 text-zinc-800 hover:bg-zinc-950 hover:text-white transition border-2 border-zinc-950"
                       >
-                        <Edit2 className="w-4 h-4" />
+                        <Edit2 className="w-4 h-4 stroke-[2.5]" />
                       </button>
                       <button
                         onClick={() => handleDeleteCat(cat.id)}
-                        className="p-2 rounded-xl bg-red-50 text-red-600 hover:bg-red-600 hover:text-white transition"
+                        className="p-2 rounded-xl bg-red-100 text-red-600 hover:bg-red-600 hover:text-white transition border-2 border-zinc-950"
                       >
-                        <Trash2 className="w-4 h-4" />
+                        <Trash2 className="w-4 h-4 stroke-[2.5]" />
                       </button>
                     </div>
                   </div>
@@ -514,31 +513,30 @@ export default function AdminDashboard({ onBackToPublic }) {
 
       </div>
 
-      {/* MODAL LIGHT FORM ITEM MENU */}
+      {/* MODAL FORM ITEM MENU */}
       {isItemModalOpen && (
-        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-3.5">
-          <div className="bg-white text-slate-900 w-full max-w-lg rounded-2xl border border-slate-200 shadow-2xl overflow-hidden">
-            <div className="flex items-center justify-between p-4 border-b border-slate-200 bg-slate-50">
-              <h3 className="font-black text-xs uppercase tracking-wider text-slate-900">
+        <div className="fixed inset-0 z-50 bg-zinc-950/70 backdrop-blur-xs flex items-center justify-center p-3.5">
+          <div className="bg-white text-zinc-950 w-full max-w-lg rounded-2xl border-2 border-zinc-950 shadow-[8px_8px_0px_0px_rgba(24,24,27,1)] overflow-hidden">
+            <div className="flex items-center justify-between p-4 border-b-2 border-zinc-950 bg-zinc-100">
+              <h3 className="font-black text-xs uppercase tracking-wider text-zinc-950">
                 {editingItemId ? 'EDIT MENU' : 'TAMBAH MENU BARU'}
               </h3>
-              <button onClick={() => setIsItemModalOpen(false)} className="p-1.5 rounded-lg text-slate-400 hover:bg-slate-200">
+              <button onClick={() => setIsItemModalOpen(false)} className="p-1.5 rounded-lg text-zinc-500 hover:bg-zinc-200">
                 <X className="w-4 h-4 stroke-[3]" />
               </button>
             </div>
 
             <form onSubmit={handleItemSubmit} className="p-4 sm:p-5 space-y-4 max-h-[80vh] overflow-y-auto text-xs font-bold">
               
-              {/* Option Foto */}
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <label className="font-black uppercase tracking-wider text-slate-800">Foto Menu</label>
-                  <div className="flex gap-1 bg-slate-100 p-1 rounded-lg border border-slate-200 text-[10px]">
+                  <label className="font-black uppercase tracking-wider text-zinc-950">Foto Menu</label>
+                  <div className="flex gap-1 bg-zinc-100 p-1 rounded-lg border-2 border-zinc-950 text-[10px]">
                     <button
                       type="button"
                       onClick={() => setImageSourceType('url')}
                       className={`px-2.5 py-1 rounded-md transition font-black uppercase ${
-                        imageSourceType === 'url' ? 'bg-[#0052FF] text-white' : 'text-slate-600'
+                        imageSourceType === 'url' ? 'bg-[#0052FF] text-white' : 'text-zinc-600'
                       }`}
                     >
                       Link URL
@@ -547,7 +545,7 @@ export default function AdminDashboard({ onBackToPublic }) {
                       type="button"
                       onClick={() => setImageSourceType('file')}
                       className={`px-2.5 py-1 rounded-md transition font-black uppercase ${
-                        imageSourceType === 'file' ? 'bg-[#0052FF] text-white' : 'text-slate-600'
+                        imageSourceType === 'file' ? 'bg-[#0052FF] text-white' : 'text-zinc-600'
                       }`}
                     >
                       Upload File
@@ -556,28 +554,28 @@ export default function AdminDashboard({ onBackToPublic }) {
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <div className="w-16 h-16 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center overflow-hidden flex-shrink-0">
+                  <div className="w-16 h-16 rounded-xl bg-zinc-100 border-2 border-zinc-950 flex items-center justify-center overflow-hidden flex-shrink-0">
                     {imagePreview ? (
                       <img src={imagePreview} alt="Preview" className="w-full h-full object-cover" onError={() => setImagePreview('')} />
                     ) : (
-                      <ImageIcon className="w-6 h-6 text-slate-400" />
+                      <ImageIcon className="w-6 h-6 text-zinc-400" />
                     )}
                   </div>
 
                   <div className="flex-1 min-w-0">
                     {imageSourceType === 'url' ? (
                       <div className="relative">
-                        <LinkIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400" />
+                        <LinkIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-zinc-400" />
                         <input
                           type="url"
                           placeholder="https://images.unsplash.com/..."
                           value={itemFormData.image_url}
                           onChange={handleUrlChange}
-                          className="w-full pl-9 pr-3 py-2 bg-slate-50 border border-slate-300 rounded-xl focus:border-[#0052FF] focus:outline-none text-xs font-mono"
+                          className="w-full pl-9 pr-3 py-2 bg-zinc-50 border-2 border-zinc-950 rounded-xl focus:border-[#0052FF] focus:outline-none text-xs font-mono"
                         />
                       </div>
                     ) : (
-                      <label className="cursor-pointer px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl hover:bg-slate-100 transition flex items-center gap-2 text-xs font-black text-slate-700">
+                      <label className="cursor-pointer px-3 py-2 bg-zinc-50 border-2 border-zinc-950 rounded-xl hover:bg-zinc-100 transition flex items-center gap-2 text-xs font-black text-zinc-950">
                         <Upload className="w-4 h-4 text-[#0052FF]" />
                         Pilih Berkas Foto
                         <input type="file" accept="image/*" onChange={handleFileChange} className="hidden" />
@@ -588,24 +586,24 @@ export default function AdminDashboard({ onBackToPublic }) {
               </div>
 
               <div>
-                <label className="block font-black uppercase tracking-wider text-slate-800 mb-1">Nama Menu</label>
+                <label className="block font-black uppercase tracking-wider text-zinc-950 mb-1">Nama Menu</label>
                 <input
                   type="text"
                   required
                   placeholder="Contoh: Kopi Susu Aren"
                   value={itemFormData.name}
                   onChange={(e) => setItemFormData({ ...itemFormData, name: e.target.value })}
-                  className="w-full px-3 py-2.5 bg-slate-50 border border-slate-300 rounded-xl focus:border-[#0052FF] focus:outline-none font-bold uppercase"
+                  className="w-full px-3 py-2.5 bg-zinc-50 border-2 border-zinc-950 rounded-xl focus:border-[#0052FF] focus:outline-none font-bold uppercase"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block font-black uppercase tracking-wider text-slate-800 mb-1">Kategori</label>
+                  <label className="block font-black uppercase tracking-wider text-zinc-950 mb-1">Kategori</label>
                   <select
                     value={itemFormData.category_id}
                     onChange={(e) => setItemFormData({ ...itemFormData, category_id: e.target.value })}
-                    className="w-full px-3 py-2.5 bg-slate-50 border border-slate-300 rounded-xl focus:border-[#0052FF] focus:outline-none font-bold text-slate-900"
+                    className="w-full px-3 py-2.5 bg-zinc-50 border-2 border-zinc-950 rounded-xl focus:border-[#0052FF] focus:outline-none font-bold text-zinc-950"
                   >
                     {categories.map(cat => (
                       <option key={cat.id} value={cat.id}>{cat.name}</option>
@@ -614,38 +612,38 @@ export default function AdminDashboard({ onBackToPublic }) {
                 </div>
 
                 <div>
-                  <label className="block font-black uppercase tracking-wider text-slate-800 mb-1">Harga (Rp)</label>
+                  <label className="block font-black uppercase tracking-wider text-zinc-950 mb-1">Harga (Rp)</label>
                   <input
                     type="number"
                     required
                     placeholder="25000"
                     value={itemFormData.price}
                     onChange={(e) => setItemFormData({ ...itemFormData, price: e.target.value })}
-                    className="w-full px-3 py-2.5 bg-slate-50 border border-slate-300 rounded-xl focus:border-[#0052FF] focus:outline-none font-mono font-bold"
+                    className="w-full px-3 py-2.5 bg-zinc-50 border-2 border-zinc-950 rounded-xl focus:border-[#0052FF] focus:outline-none font-mono font-bold"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block font-black uppercase tracking-wider text-slate-800 mb-1">Sisa Stok (Porsi)</label>
+                <label className="block font-black uppercase tracking-wider text-zinc-950 mb-1">Sisa Stok (Porsi)</label>
                 <input
                   type="number"
                   required
                   placeholder="10"
                   value={itemFormData.stock_quantity}
                   onChange={(e) => setItemFormData({ ...itemFormData, stock_quantity: e.target.value })}
-                  className="w-full px-3 py-2.5 bg-slate-50 border border-slate-300 rounded-xl focus:border-[#0052FF] focus:outline-none font-mono font-bold"
+                  className="w-full px-3 py-2.5 bg-zinc-50 border-2 border-zinc-950 rounded-xl focus:border-[#0052FF] focus:outline-none font-mono font-bold"
                 />
               </div>
 
               <div>
-                <label className="block font-black uppercase tracking-wider text-slate-800 mb-1">Deskripsi Ringkas</label>
+                <label className="block font-black uppercase tracking-wider text-zinc-950 mb-1">Deskripsi Ringkas</label>
                 <textarea
                   rows="2"
                   placeholder="Tuliskan racikan atau deskripsi singkat..."
                   value={itemFormData.description}
                   onChange={(e) => setItemFormData({ ...itemFormData, description: e.target.value })}
-                  className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl focus:border-[#0052FF] focus:outline-none resize-none font-medium"
+                  className="w-full px-3 py-2 bg-zinc-50 border-2 border-zinc-950 rounded-xl focus:border-[#0052FF] focus:outline-none resize-none font-medium"
                 />
               </div>
 
@@ -655,9 +653,9 @@ export default function AdminDashboard({ onBackToPublic }) {
                     type="checkbox"
                     checked={itemFormData.is_available}
                     onChange={(e) => setItemFormData({ ...itemFormData, is_available: e.target.checked })}
-                    className="w-4 h-4 rounded text-[#0052FF] focus:ring-0"
+                    className="w-4 h-4 rounded text-[#0052FF] focus:ring-0 border-2 border-zinc-950"
                   />
-                  <span className="font-bold text-slate-800 uppercase">Tersedia</span>
+                  <span className="font-bold text-zinc-950 uppercase">Tersedia</span>
                 </label>
 
                 <label className="flex items-center gap-2 cursor-pointer">
@@ -665,27 +663,27 @@ export default function AdminDashboard({ onBackToPublic }) {
                     type="checkbox"
                     checked={itemFormData.is_popular}
                     onChange={(e) => setItemFormData({ ...itemFormData, is_popular: e.target.checked })}
-                    className="w-4 h-4 rounded text-[#0052FF] focus:ring-0"
+                    className="w-4 h-4 rounded text-[#0052FF] focus:ring-0 border-2 border-zinc-950"
                   />
-                  <span className="font-bold text-slate-800 uppercase flex items-center gap-1">
+                  <span className="font-bold text-zinc-950 uppercase flex items-center gap-1">
                     <Flame className="w-3.5 h-3.5 text-[#FF4500]" />
                     Favorit
                   </span>
                 </label>
               </div>
 
-              <div className="pt-3 flex justify-end gap-2 border-t border-slate-200">
+              <div className="pt-3 flex justify-end gap-2 border-t-2 border-zinc-950">
                 <button
                   type="button"
                   onClick={() => setIsItemModalOpen(false)}
-                  className="px-4 py-2 rounded-xl text-slate-500 hover:bg-slate-100 font-bold uppercase"
+                  className="px-4 py-2 rounded-xl text-zinc-600 hover:bg-zinc-100 font-bold uppercase"
                 >
                   Batal
                 </button>
                 <button
                   type="submit"
                   disabled={saving}
-                  className="px-5 py-2.5 bg-[#0052FF] text-white rounded-xl font-black uppercase tracking-wider hover:bg-slate-900 transition flex items-center gap-2 active:scale-95"
+                  className="px-5 py-2.5 bg-[#0052FF] text-white rounded-xl font-black uppercase tracking-wider hover:bg-zinc-950 transition flex items-center gap-2 border-2 border-zinc-950 shadow-[2px_2px_0px_0px_rgba(24,24,27,1)] active:translate-x-0.5 active:translate-y-0.5"
                 >
                   {saving && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
                   {saving ? 'PROSES...' : 'SIMPAN MENU'}
@@ -696,55 +694,55 @@ export default function AdminDashboard({ onBackToPublic }) {
         </div>
       )}
 
-      {/* MODAL LIGHT FORM KATEGORI */}
+      {/* MODAL FORM KATEGORI */}
       {isCatModalOpen && (
-        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-3.5">
-          <div className="bg-white text-slate-900 w-full max-w-sm rounded-2xl border border-slate-200 shadow-2xl overflow-hidden">
-            <div className="flex items-center justify-between p-4 border-b border-slate-200 bg-slate-50">
-              <h3 className="font-black text-xs uppercase tracking-wider text-slate-900">
+        <div className="fixed inset-0 z-50 bg-zinc-950/70 backdrop-blur-xs flex items-center justify-center p-3.5">
+          <div className="bg-white text-zinc-950 w-full max-w-sm rounded-2xl border-2 border-zinc-950 shadow-[8px_8px_0px_0px_rgba(24,24,27,1)] overflow-hidden">
+            <div className="flex items-center justify-between p-4 border-b-2 border-zinc-950 bg-zinc-100">
+              <h3 className="font-black text-xs uppercase tracking-wider text-zinc-950">
                 {editingCatId ? 'EDIT KATEGORI' : 'TAMBAH KATEGORI'}
               </h3>
-              <button onClick={() => setIsCatModalOpen(false)} className="p-1.5 rounded-lg text-slate-400 hover:bg-slate-200">
+              <button onClick={() => setIsCatModalOpen(false)} className="p-1.5 rounded-lg text-zinc-500 hover:bg-zinc-200">
                 <X className="w-4 h-4 stroke-[3]" />
               </button>
             </div>
 
             <form onSubmit={handleCatSubmit} className="p-5 space-y-4 text-xs font-bold">
               <div>
-                <label className="block font-black uppercase tracking-wider text-slate-800 mb-1">Nama Kategori</label>
+                <label className="block font-black uppercase tracking-wider text-zinc-950 mb-1">Nama Kategori</label>
                 <input
                   type="text"
                   required
                   placeholder="Contoh: WASHED / ESPRESSO"
                   value={catFormData.name}
                   onChange={(e) => setCatFormData({ ...catFormData, name: e.target.value })}
-                  className="w-full px-3 py-2.5 bg-slate-50 border border-slate-300 rounded-xl focus:border-[#0052FF] focus:outline-none uppercase font-bold"
+                  className="w-full px-3 py-2.5 bg-zinc-50 border-2 border-zinc-950 rounded-xl focus:border-[#0052FF] focus:outline-none uppercase font-bold"
                 />
               </div>
 
               <div>
-                <label className="block font-black uppercase tracking-wider text-slate-800 mb-1">Urutan Tampilan</label>
+                <label className="block font-black uppercase tracking-wider text-zinc-950 mb-1">Urutan Tampilan</label>
                 <input
                   type="number"
                   required
                   value={catFormData.sort_order}
                   onChange={(e) => setCatFormData({ ...catFormData, sort_order: e.target.value })}
-                  className="w-full px-3 py-2.5 bg-slate-50 border border-slate-300 rounded-xl focus:border-[#0052FF] focus:outline-none font-mono font-bold"
+                  className="w-full px-3 py-2.5 bg-zinc-50 border-2 border-zinc-950 rounded-xl focus:border-[#0052FF] focus:outline-none font-mono font-bold"
                 />
               </div>
 
-              <div className="pt-3 flex justify-end gap-2 border-t border-slate-200">
+              <div className="pt-3 flex justify-end gap-2 border-t-2 border-zinc-950">
                 <button
                   type="button"
                   onClick={() => setIsCatModalOpen(false)}
-                  className="px-4 py-2 rounded-xl text-slate-500 hover:bg-slate-100 font-bold uppercase"
+                  className="px-4 py-2 rounded-xl text-zinc-600 hover:bg-zinc-100 font-bold uppercase"
                 >
                   Batal
                 </button>
                 <button
                   type="submit"
                   disabled={saving}
-                  className="px-5 py-2.5 bg-[#0052FF] text-white rounded-xl font-black uppercase tracking-wider hover:bg-slate-900 transition flex items-center gap-2 active:scale-95"
+                  className="px-5 py-2.5 bg-[#0052FF] text-white rounded-xl font-black uppercase tracking-wider hover:bg-zinc-950 transition flex items-center gap-2 border-2 border-zinc-950 shadow-[2px_2px_0px_0px_rgba(24,24,27,1)] active:translate-x-0.5 active:translate-y-0.5"
                 >
                   {saving && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
                   {saving ? 'PROSES...' : 'SIMPAN KATEGORI'}
